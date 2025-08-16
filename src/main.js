@@ -8,12 +8,16 @@ class App {
     this.fraudDetector = new FraudDetector();
     this.uiManager = new UIManager();
     this.chartManager = new ChartManager();
+    this.horseArea = null;
+    this.warningTimer = null;
+
     this.init();
   }
 
   init() {
     this.uiManager.init();
     this.setupEventListeners();
+    this.initHorse();
   }
 
   setupEventListeners() {
@@ -25,6 +29,35 @@ class App {
     }, 100);
   }
 
+  initHorse() {
+    document.documentElement.style.setProperty('--run-duration', '14s');
+    this.horseArea = document.getElementById('horseArea');
+    const schedule = () => {
+      const nextDelay = 3000 + Math.random() * 4000;
+      this.warningTimer = setTimeout(() => {
+        if (Math.random() < 0.6) this.spawnWarning();
+        schedule();
+      }, nextDelay);
+    };
+    schedule();
+
+    window.addEventListener('beforeunload', () => {
+      if (this.warningTimer) clearTimeout(this.warningTimer);
+    });
+  }
+
+  spawnWarning() {
+    if (!this.horseArea) return;
+
+    const warn = document.createElement('span');
+    warn.textContent = '⚠️';
+    warn.className = 'warning';
+    warn.style.left = `${Math.random() * 80 - 40}px`;
+
+    this.horseArea.appendChild(warn);
+    setTimeout(() => warn.remove(), 1000);
+  }
+  
   setupFileUpload() {
     const fileInput = document.getElementById('file-input');
     const dropZone = document.getElementById('drop-zone');
@@ -70,6 +103,15 @@ class App {
     if (sampleButton) {
       sampleButton.addEventListener('click', () => {
         this.loadSampleData();
+      });
+    }
+  }
+
+  setupThemeToggle() {
+    const themeToggle = document.getElementById('theme-toggle');
+    if (themeToggle) {
+      themeToggle.addEventListener('click', () => {
+        this.uiManager.toggleTheme();
       });
     }
   }

@@ -44,6 +44,9 @@ export class UIManager {
                                 <img src="./fraud-icon.png" alt="fraud-icon" class="w-10 h-10" />
                                 <h1 class="text-xl font-bold text-gray-900 dark:text-white">Fraud Shield</h1>
                             </div>
+                            <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+                                <svg id="theme-icon" class="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
                         </div>
                     </div>
                 </header>
@@ -52,7 +55,7 @@ export class UIManager {
                 <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                     <!-- Welcome Section -->
                     <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-8">
-                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Welcome to Fraud Shield ⛨</h2>
+                        <h2 class="text-2xl font-bold text-gray-900 dark:text-white mb-4">Welcome to Fraud Shield</h2>
                         <p class="text-gray-600 dark:text-gray-300 mb-6">
                             Upload your bank account data to check for potential risks and fraudulent activity using our advanced machine-learning model.
                             The system returns confidence scores and risk classifications for each account before settlement.

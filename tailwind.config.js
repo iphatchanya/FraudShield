@@ -7,7 +7,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        border: '#e2e8f0', // slate-200
+        border: '#e2e8f0',
         primary: {
           50: '#eff6ff',
           100: '#dbeafe',

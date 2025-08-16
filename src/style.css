@@ -27,12 +27,8 @@
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }
 
 @keyframes slideUp {
@@ -49,19 +45,93 @@
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-track {
   @apply bg-gray-100 dark:bg-gray-800;
 }
-
 ::-webkit-scrollbar-thumb {
   @apply bg-gray-300 dark:bg-gray-600 rounded-full;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-gray-400 dark:bg-gray-500;
 }
 
 canvas {
   max-height: 300px !important;
+}
+
+@layer utilities {
+  .horse-track {
+    @apply pointer-events-none fixed left-0 w-screen z-50;
+    bottom: 0;
+    height: 5rem;
+  }
+  .horse-wrapper {
+    width: var(--horse-size, 72px);
+    height: var(--horse-size, 72px);
+    will-change: transform;
+  }
+  .horse-emoji {
+    font-size: var(--emoji-size, 3.5rem);
+    line-height: 1;
+    display: block;
+    transform-origin: center;
+    filter: drop-shadow(0 -2px 2px rgba(0,0,0,.2));
+    user-select: none;
+  }
+  .dust {
+    position: absolute;
+    right: -1rem;
+    bottom: .2rem;
+    font-size: 1.25rem;
+    opacity: 0;
+    user-select: none;
+    animation: puff .45s linear infinite;
+  }
+
+  .animate-run-x {
+    animation: run-x var(--run-duration, 8s) linear infinite;
+  }
+
+  @keyframes run-x {
+  0%   { transform: translateX(0) scaleX(-1); }
+  48%  { transform: translateX(calc(100vw - var(--horse-size,72px) - 8px)) scaleX(-1); }
+  52%  { transform: translateX(calc(100vw - var(--horse-size,72px) - 8px)) scaleX(1); }
+  100% { transform: translateX(0) scaleX(1); }
+  }
+
+  .animate-bob {
+    animation: bob .35s ease-in-out infinite alternate;
+  }
+  @keyframes bob {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-6px); }
+  }
+
+  @keyframes puff {
+    0%   { opacity: .7; transform: translateX(0) scale(1); }
+    100% { opacity: 0; transform: translateX(-12px) scale(1.6); }
+  }
+
+  .warning {
+    position: absolute;
+    bottom: 3.5rem;
+    font-size: 2rem;
+    opacity: 0;
+    animation: warningPop 0.8s ease-in-out forwards;
+    color: #facc15;
+    text-shadow: 0 0 4px rgba(0,0,0,0.3);
+  }
+
+  @keyframes warningPop {
+    0%   { transform: scale(0.5) translateY(10px); opacity: 0; }
+    40%  { transform: scale(1.2) translateY(-6px); opacity: 1; }
+    100% { transform: scale(1)   translateY(0);    opacity: 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-run-x, .animate-bob, .dust {
+      animation-duration: 0.001ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
 }

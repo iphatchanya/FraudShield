@@ -2,7 +2,7 @@
 
 FraudShield - Early Detection of Frozen, Mule, and Fraudulent Accounts Before Settlement
 
-URL: https://iphatchanya.github.io/FraudShield/
+🔗 URL: https://iphatchanya.github.io/FraudShield/
 
 📘 **Prototype for subject BA7602 – Business Intelligence and Analytics for Manager**  
 ⚠️ This is a demo for coursework. It does not connect to real banking systems and must not be used in production.
@@ -51,6 +51,6 @@ npm install
 npm run dev
 ```
 
+
 ## Credits
-This project is adapted from [Fraud-Detection-Dashboard](https://github.com/Param-10/Fraud-Detection-Dashboard)  
-by [Param-10] under [LICENSE type].
+This project is adapted from [Fraud-Detection-Dashboard](https://github.com/Param-10/Fraud-Detection-Dashboard) by [Param-10] 🙏🏻
