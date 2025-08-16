@@ -17,12 +17,6 @@ export class UIManager {
         this.updateThemeIcon()
     }
 
-    toggleTheme() {
-        this.isDarkMode = !this.isDarkMode
-        localStorage.setItem('darkMode', this.isDarkMode)
-        this.setupTheme()
-    }
-
     updateThemeIcon() {
         const themeIcon = document.getElementById('theme-icon')
         if (themeIcon) {
@@ -44,9 +38,6 @@ export class UIManager {
                                 <img src="./fraud-icon.png" alt="fraud-icon" class="w-10 h-10" />
                                 <h1 class="text-xl font-bold text-gray-900 dark:text-white">Fraud Shield</h1>
                             </div>
-                            <button id="theme-toggle" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
-                                <svg id="theme-icon" class="w-5 h-5 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
                         </div>
                     </div>
                 </header>

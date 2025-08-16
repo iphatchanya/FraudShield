@@ -57,7 +57,7 @@ class App {
     this.horseArea.appendChild(warn);
     setTimeout(() => warn.remove(), 1000);
   }
-  
+
   setupFileUpload() {
     const fileInput = document.getElementById('file-input');
     const dropZone = document.getElementById('drop-zone');
@@ -103,15 +103,6 @@ class App {
     if (sampleButton) {
       sampleButton.addEventListener('click', () => {
         this.loadSampleData();
-      });
-    }
-  }
-
-  setupThemeToggle() {
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-      themeToggle.addEventListener('click', () => {
-        this.uiManager.toggleTheme();
       });
     }
   }
