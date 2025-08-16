@@ -74,15 +74,6 @@ class App {
     }
   }
 
-  setupThemeToggle() {
-    const themeToggle = document.getElementById('theme-toggle');
-    if (themeToggle) {
-      themeToggle.addEventListener('click', () => {
-        this.uiManager.toggleTheme();
-      });
-    }
-  }
-
   async handleFileUpload(file) {
     if (!file) return;
 
